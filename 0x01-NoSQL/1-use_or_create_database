@@ -1,0 +1,2 @@
+// uses a database or rather creates it.
+use my_db
