@@ -1,0 +1,4 @@
+// inserts a document to a collection
+db.my_db.school.insert({
+	"name": "ALX"
+})
