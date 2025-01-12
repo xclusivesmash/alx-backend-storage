@@ -5,6 +5,7 @@ description: creates a Cache class.
 """
 import redis
 import uuid
+from typing import Union
 
 
 class Cache:
@@ -19,13 +20,13 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb
 
-    def store(self, data: str | bytes | int | float):
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """returns a string.
         Args:
             data (any): data to be stored.
         Returns:
             string variable.
         """
-        key = uuid.uuid4()
-        self._redis.set(str(key), data)
-        return str(key)
+        key = str(uuid.uuid4())
+        self._redis.set(key, data)
+        return key
